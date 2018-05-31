@@ -15,7 +15,7 @@ This will require some research, design, an implementation. Update this README.m
 
 ## CREATE DATABASE AND TABLE
 
-Create a new database called `auth_shelf` and create a `person` table:
+Create a new database called `prime_shelf` and create a `person` table:
 
 ```SQL
 CREATE TABLE "person" (
