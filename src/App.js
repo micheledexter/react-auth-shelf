@@ -12,7 +12,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import AddItem from './components/AddItem/AddItem';
-// import for shelf
+import ViewShelf from './components/ViewShelf/ViewShelf';
 // import for total
 import ShelfTotalPage from './components/ShelfTotalPage/ShelfTotalPage';
 
@@ -49,14 +49,10 @@ const App = () => (
           path="/count"
           component={ShelfTotalPage}
         />
-        {/* <Route
-          path="/shelf"
-          component={ add your component here }
-        />
         <Route
-          path="/total"
-          component={ add your component here }
-        /> */}
+          path="/shelf"
+          component={ ViewShelf }
+        />
       </Switch>
     </Router>
   </div>
