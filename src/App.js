@@ -11,8 +11,12 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
+import AddItem from './components/AddItem/AddItem';
+import ViewShelf from './components/ViewShelf/ViewShelf';
+// import for total
 
 import './styles/main.css';
+
 
 const App = () => (
   <div>
@@ -36,6 +40,18 @@ const App = () => (
           path="/info"
           component={InfoPage}
         />
+        <Route
+          path="/add"
+          component={AddItem}
+        />
+        <Route
+          path="/shelf"
+          component={ ViewShelf }
+        />
+        {/* <Route
+          path="/total"
+          component={ add your component here }
+        /> */}
       </Switch>
     </Router>
   </div>
