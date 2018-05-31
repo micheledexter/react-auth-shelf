@@ -14,6 +14,7 @@ import InfoPage from './components/InfoPage/InfoPage';
 import AddItem from './components/AddItem/AddItem';
 import ViewShelf from './components/ViewShelf/ViewShelf';
 // import for total
+import ShelfTotalPage from './components/ShelfTotalPage/ShelfTotalPage';
 
 import './styles/main.css';
 
@@ -44,14 +45,14 @@ const App = () => (
           path="/add"
           component={AddItem}
         />
+        <Route 
+          path="/count"
+          component={ShelfTotalPage}
+        />
         <Route
           path="/shelf"
           component={ ViewShelf }
         />
-        {/* <Route
-          path="/total"
-          component={ add your component here }
-        /> */}
       </Switch>
     </Router>
   </div>

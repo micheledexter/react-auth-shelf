@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * Get all of the items on the shelf
@@ -60,8 +61,19 @@ router.put('/:id', (req, res) => {
  * Return all users along with the total number of items 
  * they have added to the shelf
  */
-router.get('/count', (req, res) => {
-
+router.get('/count', rejectUnauthenticated, (req, res) => {
+    const queryText = `SELECT "person"."username", COUNT("item"."id") FROM "item"
+    RIGHT JOIN "person" ON "person"."id"="item"."person_id"
+    GROUP BY "person"."username"
+    ORDER BY "person"."username";`
+    pool.query(queryText)
+    .then((response ) => {
+        res.send(response.rows);
+    })
+    .catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
 });
 
 
