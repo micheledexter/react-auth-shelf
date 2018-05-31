@@ -13,6 +13,11 @@ const mapDispatchToProps = {
     fetchUser,
 };
 
+const config = {
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true,
+};
+
 class ShelfTotal extends Component {
     constructor(props) {
         super(props);
@@ -31,7 +36,7 @@ class ShelfTotal extends Component {
         }
     }
     fetchTable = () => {
-        axios.get('/api/shelf/count').then((response) => {
+        axios.get('/api/shelf/count', config).then((response) => {
             this.setState({
                 table: response.data,
             });
