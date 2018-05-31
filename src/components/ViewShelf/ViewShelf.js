@@ -23,7 +23,9 @@ class ViewShelf extends Component {
   }
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    this.getItems();
+    this.props.dispatch({
+      type: 'GET_ALL_ITEMS'
+    });
   }
 
   componentDidUpdate() {
@@ -32,22 +34,26 @@ class ViewShelf extends Component {
     }
   }
 
-  getItems() {
-    console.log(config);
-    axios.get('/api/shelf', config)
-      .then(response => {
-        this.setState({
-          itemList: response.data,
-        });
-      })
-      .catch((error) => { throw error; });
-  }
+  // getItems() {
+    // console.log(config);
+    // axios.get('/api/shelf', config)
+    //   .then(response => {
+    //     this.setState({
+    //       itemList: response.data,
+    //     });
+    //   })
+    //   .catch((error) => { throw error; });
+  // }
 
   deleteItem(id) {
-    axios.delete(`/api/shelf/${id}`, config).then(() => {
-      this.getItems();
-    }).catch(error => {
-      throw error;
+    // axios.delete(`/api/shelf/${id}`, config).then(() => {
+    //   this.getItems();
+    // }).catch(error => {
+    //   throw error;
+    // });
+    this.props.dispatch({
+      type: 'DELETE_ITEM',
+      payload: id,
     });
   }
 
