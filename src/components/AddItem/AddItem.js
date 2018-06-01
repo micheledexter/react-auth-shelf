@@ -21,6 +21,11 @@ class AddItem extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.user.userName) {
+          this.props.history.push('/shelf');
+        }
+      }
 
     addItem = (event) => {
         event.preventDefault();
