@@ -19,7 +19,6 @@ function* postForm(action) {
     const formPost = yield call(axios.post, '/api/shelf', action.payload);
     console.log(formPost);
     yield dispatch ({
-      type: 'ADD_FORM'
     })
   } catch (error) {}
 }
@@ -29,7 +28,6 @@ function* shelfItems() {
     const shelfResponse = yield call(axios.get, 'api/shelf');
     console.log(shelfResponse);
     yield dispatch({
-      type: 'SET_ITEMS',
       payload: shelfResponse.data,
     })
   } catch (error) { }
